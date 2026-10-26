@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Moondeuk</string>
+    <string name="app_name">문득</string>
+
+    <!-- 녹음 실험 화면 (개발용, 1단계 기술 검증) -->
+    <string name="lab_title">녹음 실험 (개발용)</string>
+    <string name="lab_source_label">입력 출처: REAL · 기기 마이크</string>
+    <string name="lab_notice">최대 10초, 화면이 보일 때만 녹음합니다. 테스트 문장만 녹음하세요.</string>
+    <string name="lab_record">녹음</string>
+    <string name="lab_stop">정지</string>
+    <string name="lab_play">재생</string>
+    <string name="lab_delete">삭제</string>
+    <string name="lab_status_ready">대기 중</string>
+    <string name="lab_status_recording">● 녹음 중 %1$.1f초 / %2$d초</string>
+    <string name="lab_status_saved">저장됨</string>
+    <string name="lab_status_failed">녹음 실패: %1$s (%2$s)</string>
+    <string name="lab_status_playing">재생 중</string>
+    <string name="lab_status_play_failed">재생 실패</string>
+    <string name="lab_status_focus_denied">오디오 포커스를 받지 못해 재생하지 않았습니다</string>
+    <string name="lab_status_deleted">삭제됨</string>
+    <string name="lab_status_delete_failed">삭제 실패</string>
+    <string name="lab_permission_denied">마이크 권한이 없어 녹음하지 않았습니다</string>
+    <string name="lab_result_summary">길이 %1$.1f초 · 파일 %2$d KB (16kHz · 16bit · mono WAV)</string>
+    <string name="lab_result_levels">최대 %1$s · 평균(RMS) %2$s · 0이 아닌 샘플 %3$.1f%%</string>
+    <string name="lab_result_existing">저장된 파일: 약 %1$.1f초 · %2$d KB</string>
+    <string name="lab_verdict_ok">판정: 실제 소리 입력이 있습니다</string>
+    <string name="lab_verdict_silent">판정: 거의 무음입니다. 에뮬레이터라면 Extended controls → Microphone에서 \'Virtual microphone uses host audio input\'을 켜고 다시 녹음하세요.</string>
+    <string name="lab_verdict_silenced">주의: 녹음 중 시스템이 이 앱의 입력을 무음 처리했습니다 (다른 앱이 마이크를 사용했을 수 있음)</string>
 </resources>

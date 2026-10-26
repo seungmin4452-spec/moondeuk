@@ -4,7 +4,7 @@
 
 ## 0. 저장소 현황 (2026-10-26 기준)
 
-Android Studio "No Activity" 템플릿으로 생성한 직후 상태다. 아직 Activity·화면·앱 코드가 없다. 아래 버전은 템플릿이 만든 현재 값이며, Pleos 환경에서 검증한 값이 아니다 (2장 참고).
+Android Studio "No Activity" 템플릿에서 시작했다. 현재 앱 코드는 1단계 기술 검증용 녹음 실험 화면(`lab/RecorderLabActivity`, 런처 진입점)과 녹음 엔진(`audio/`)뿐이다. 아래 버전은 템플릿이 만든 현재 값이며, Pleos 환경에서 검증한 값이 아니다 (2장 참고).
 
 | 항목 | 현재 값 |
 | --- | --- |
@@ -21,7 +21,7 @@ Android Studio "No Activity" 템플릿으로 생성한 직후 상태다. 아직 
 
 ### 자주 쓰는 명령
 
-Bash는 `./gradlew`, PowerShell은 `.\gradlew`를 쓴다. 아래 명령은 표준 AGP task이며, 아직 이 저장소에서 실행 성공을 확인하지 않았다. 확인한 뒤 README에 옮긴다.
+Bash는 `./gradlew`, PowerShell은 `.\gradlew`를 쓴다. `assembleDebug`·`test`는 2026-10-26 템플릿 상태에서 성공을 확인했다. 나머지는 표준 AGP task이며 아직 실행하지 않았다.
 
 ```bash
 ./gradlew assembleDebug            # 디버그 APK 빌드
@@ -44,9 +44,16 @@ Bash는 `./gradlew`, PowerShell은 `.\gradlew`를 쓴다. 아래 명령은 표�
 ### 지침과 아직 맞지 않는 부분
 
 - **플랫폼**: 현재는 일반 휴대폰 앱 템플릿이다. Pleos Connect/Android Automotive OS 앱으로 동작하기 위한 manifest 설정, SDK 의존성, 에뮬레이터 구성은 공식 문서를 확인한 뒤 반영한다 (4장).
-- **백업**: `AndroidManifest.xml`에 `allowBackup="true"`이고, `backup_rules.xml`·`data_extraction_rules.xml`은 템플릿 기본값이다. 오디오·인식문을 저장하기 전에 백업 제외를 설정한다 (8장).
+- **백업**: `allowBackup="false"`, `backup_rules.xml`·`data_extraction_rules.xml`에서 앱 데이터 전체를 제외했다 (8장). 백업이 필요한 항목이 생기면 개별로 다시 검토한다.
 - **식별자**: `com.example.moondeuk`는 임시 값이다. 제출 전에 정식 applicationId를 정한다.
-- **산출물 문서**: `docs/feasibility.md`, `docs/demo.md`, `docs/status.md`, `README.md`가 아직 없다 (11장).
+- **산출물 문서**: `docs/feasibility.md`·`docs/status.md`·`docs/roadmap.md`(단계 구분)는 작성됨. `docs/demo.md`, `README.md`는 아직 없다 (11장).
+
+### Pleos SDK 메모 (상세·근거는 `docs/feasibility.md`)
+
+- 저장소 `https://nexus-playground.pleos.ai/repository/maven-releases/` (인증 불필요). STT `3.3.1`, Vehicle `2.3.2`, FusedLocation `1.1.3`. 추가할 때 버전 카탈로그에 등록한다.
+- STT는 반드시 `Mode.ON_DEVICE`를 명시한다. 기본값 `HYBRID`는 서버로 음성을 보낸다.
+- FusedLocation AAR은 `android.hardware.type.automotive`를 required로 선언한다. 넣으면 휴대폰 기기에 설치할 수 없다.
+- STT의 `AmbientAiApi`·`Speaker`·`CallApi` 등 공식 문서에 없는 API는 쓰지 않는다.
 
 ## 1. 제품과 가장 중요한 경험
 
