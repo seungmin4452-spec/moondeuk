@@ -82,4 +82,5 @@ Windows이므로 `gradlew.bat`(PowerShell에서는 `.\gradlew`)을 사용합니�
 ## 기타
 
 - `local.properties`는 SDK 경로를 담고 있으며 커밋하지 않음(.gitignore 처리됨).
-- 아직 git 저장소가 아님. 버전 관리를 시작하려면 `git init`.
+- Git 원격: `origin` = https://github.com/seungmin4452-spec/moondeuk.git (기본 브랜치 `main`)
+- `.gitattributes`로 `gradlew`는 LF 줄바꿈을 유지함 (CRLF가 되면 Mac/Linux에서 실행 불가).
